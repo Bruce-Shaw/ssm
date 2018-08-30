@@ -13,8 +13,8 @@
 
 ### 目录结构
 * `src/main` 工程源代码目录
-** `src/main/java` 工程java源代码目录
-** `src/main/resource` 工程的资源目录
+* `src/main/java` 工程java源代码目录
+* `src/main/resource` 工程的资源目录
 * `src/test` 单元测试目录
 
 
