@@ -22,7 +22,7 @@ public class UserController {
     @RequestMapping("/showUser.do")
     public void selectUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json;charset=utf-8");
         long userId = Long.parseLong(request.getParameter("id"));
         User user = this.userService.selectUser(userId);
         ObjectMapper mapper = new ObjectMapper();
@@ -30,4 +30,13 @@ public class UserController {
         response.getWriter().close();
     }
 
+    @RequestMapping("/showUsers.do")
+    public void selectAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json;charset=utf-8");
+        User[] users = this.userService.selectUsers();
+        ObjectMapper mapper = new ObjectMapper();
+        response.getWriter().write(mapper.writeValueAsString(users));
+        response.getWriter().close();
+    }
 }

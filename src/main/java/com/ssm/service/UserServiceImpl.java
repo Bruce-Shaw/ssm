@@ -17,4 +17,7 @@ public class UserServiceImpl implements UserService {
         return this.userDao.selectUser(userId);
     }
 
+    public User[] selectUsers() {
+        return this.userDao.selectUsers();
+    }
 }

@@ -6,4 +6,6 @@ public interface UserDao {
 
     User selectUser(long id);
 
+    User[] selectUsers();
+
 }

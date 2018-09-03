@@ -8,4 +8,7 @@
         SELECT * FROM users WHERE id = #{id}
     </select>
 
+    <select id="selectUsers" resultType="User" parameterType="long">
+        SELECT * FROM users
+    </select>
 </mapper>
