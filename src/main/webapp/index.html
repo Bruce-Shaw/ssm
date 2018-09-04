@@ -6,15 +6,34 @@
   <script src="org/jQuery3.3.1.js"></script>
 </head>
 <body>
-<p>Hello World!</p>
-<ul id="test"></ul>
+<h1>员工列表</h1>
+<table border="1" id="div-table"></table>
+<div id="div-btn"></div>
 <script>
+  const handlePrev = () => {
+
+  };
+
+  const handleNext = () => {
+
+  };
+
   $.ajax({
-    url: "user/showUsers.do", success: function (result) {
+    url: "user/showUsers.do",
+    data: "pageSize=5&pageNow=1",
+    success: function (result) {
+      let parentDom = '';
       result.map(item => {
-        console.log(item)
-        $('#test').append('<li>'+item.toString()+'</li>');
+        let dom = '<tr>';
+        for (it in item) {
+          dom += '<td>' + item[it] + '</td>';
+        }
+        dom += '</tr>';
+        parentDom += dom;
       });
+      $('#div-table').append(parentDom);
+      const btnStr = '<button onclick="this.handlePrev">prev</button><button onclick="this.handleNext">next</button>';
+      $('#div-btn').append(btnStr);
     }
   });
 </script>

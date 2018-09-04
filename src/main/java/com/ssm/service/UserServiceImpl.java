@@ -2,22 +2,23 @@ package com.ssm.service;
 
 import com.ssm.dao.UserDao;
 import com.ssm.entity.User;
-import com.ssm.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
-    @Resource
+    @Autowired
     private UserDao userDao;
 
     public User selectUser(long userId) {
         return this.userDao.selectUser(userId);
     }
 
-    public User[] selectUsers() {
-        return this.userDao.selectUsers();
+    public List<User> selectUsersByPage(HashMap<String,Object> map) {
+        return this.userDao.selectUsersByPage(map);
     }
 }

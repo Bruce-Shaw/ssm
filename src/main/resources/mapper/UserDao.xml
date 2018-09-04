@@ -8,7 +8,7 @@
         SELECT * FROM users WHERE id = #{id}
     </select>
 
-    <select id="selectUsers" resultType="User" parameterType="long">
-        SELECT * FROM users
+    <select id="selectUsersByPage" resultType="User" parameterType="HashMap">
+        SELECT * FROM users limit #{start}, #{end};
     </select>
 </mapper>
