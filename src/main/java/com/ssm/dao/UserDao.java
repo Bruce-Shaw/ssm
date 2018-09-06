@@ -13,5 +13,7 @@ public interface UserDao {
 
     Integer getTotalCount();
 
-    long createUser(User user);
+    Long createUser(User user);
+
+    Long updateUser(User user);
 }

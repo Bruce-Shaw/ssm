@@ -49,4 +49,12 @@ public class UserController {
         Map resultMap = userService.createUser(user);
         return  resultMap;
     }
+
+    @RequestMapping(value="/updateUser.do", method={RequestMethod.POST})
+    @ResponseBody
+    public Map updateUser(User user) throws IOException {
+        System.out.println("============="+user);
+        Map resultMap = userService.updateUser(user);
+        return  resultMap;
+    }
 }
