@@ -4,16 +4,20 @@
 <!-- 设置为UserDao接口方法提供sql语句配置 -->
 <mapper namespace="com.ssm.dao.UserDao">
 
-    <select id="selectUser" resultType="User" parameterType="long">
+    <select id="getUserById" resultType="com.ssm.entity.User" parameterType="long">
         SELECT * FROM users WHERE id = #{id}
     </select>
 
-    <select id="selectUsersByPage" resultType="User" parameterType="HashMap">
+    <select id="getUsersByPage" resultType="com.ssm.entity.User" parameterType="HashMap">
         SELECT * FROM users limit #{start}, #{end};
     </select>
 
     <select id="getTotalCount" resultType="int" parameterType="int">
         SELECT COUNT(*) FROM users;
+    </select>
+
+    <select id="createUser" resultType="long" parameterType="com.ssm.entity.User">
+        INSERT INTO users ('name', 'gender', 'position', 'salary') VALUES(?, ?, ?, ?);
     </select>
 
 </mapper>

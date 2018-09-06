@@ -3,14 +3,16 @@ package com.ssm.service;
 import com.ssm.entity.User;
 
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 public interface UserService {
 
-    public User selectUser(long userId);
+    public User getUserById(long id);
 
-    public List<User> selectUsersByPage(HashMap<String,Object> map);
+    public HashMap<String,Object> getUsersByPage(HashMap<String,Object> map);
 
     public Integer getTotalCount();
+
+    public Map createUser(User user);
 
 }

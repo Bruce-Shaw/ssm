@@ -1,23 +1,28 @@
 package com.ssm.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
-    private double id;
+public class User implements Serializable {
+    private Long id;
     private String name;
     private String gender;
     private Date born;
     private String position;
-    private double salary;
+    private Long salary;
     private String bornStr;
 
-    public double getId() {
+    public Long getId() {
         return id;
     }
 
-//    public void setId(double id) {
-//        this.id = id;
-//    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setSalary(Long salary) {
+        this.salary = salary;
+    }
 
     public String getName() {
         return name;
@@ -51,13 +56,6 @@ public class User {
         this.position = position;
     }
 
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
 
     public String getBornStr() {
         return bornStr;
@@ -65,5 +63,18 @@ public class User {
 
     public void setBornStr(String bornStr) {
         this.bornStr = bornStr;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", born=" + born +
+                ", position='" + position + '\'' +
+                ", salary=" + salary +
+                ", bornStr='" + bornStr + '\'' +
+                '}';
     }
 }

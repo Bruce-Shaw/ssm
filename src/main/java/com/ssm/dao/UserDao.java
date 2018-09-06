@@ -7,9 +7,11 @@ import java.util.List;
 
 public interface UserDao {
 
-    User selectUser(long id);
+    User getUserById(long id);
 
-    List<User> selectUsersByPage(HashMap<String,Object> map);
+    List<User> getUsersByPage(HashMap<String,Object> map);
 
     Integer getTotalCount();
+
+    long createUser(User user);
 }
