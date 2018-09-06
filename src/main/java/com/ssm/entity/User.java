@@ -9,6 +9,7 @@ public class User {
     private Date born;
     private String position;
     private double salary;
+    private String bornStr;
 
     public double getId() {
         return id;
@@ -56,5 +57,13 @@ public class User {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public String getBornStr() {
+        return bornStr;
+    }
+
+    public void setBornStr(String bornStr) {
+        this.bornStr = bornStr;
     }
 }

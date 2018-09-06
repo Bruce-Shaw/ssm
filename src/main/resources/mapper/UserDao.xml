@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<!-- 设置为UserDao接口方法提供sql语句配置 -->
 <mapper namespace="com.ssm.dao.UserDao">
 
     <select id="selectUser" resultType="User" parameterType="long">
@@ -11,4 +11,9 @@
     <select id="selectUsersByPage" resultType="User" parameterType="HashMap">
         SELECT * FROM users limit #{start}, #{end};
     </select>
+
+    <select id="getTotalCount" resultType="int" parameterType="int">
+        SELECT COUNT(*) FROM users;
+    </select>
+
 </mapper>

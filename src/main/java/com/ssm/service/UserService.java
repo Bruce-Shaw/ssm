@@ -11,4 +11,6 @@ public interface UserService {
 
     public List<User> selectUsersByPage(HashMap<String,Object> map);
 
+    public Integer getTotalCount();
+
 }

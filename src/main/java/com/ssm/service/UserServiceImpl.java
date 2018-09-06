@@ -21,4 +21,8 @@ public class UserServiceImpl implements UserService {
     public List<User> selectUsersByPage(HashMap<String,Object> map) {
         return this.userDao.selectUsersByPage(map);
     }
+
+    public Integer getTotalCount() {
+        return this.userDao.getTotalCount();
+    }
 }

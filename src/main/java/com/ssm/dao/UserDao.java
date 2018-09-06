@@ -11,4 +11,5 @@ public interface UserDao {
 
     List<User> selectUsersByPage(HashMap<String,Object> map);
 
+    Integer getTotalCount();
 }
