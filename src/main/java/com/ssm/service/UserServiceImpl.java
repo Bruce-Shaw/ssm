@@ -27,7 +27,6 @@ public class UserServiceImpl implements UserService {
         List<User> users = this.userDao.getUsersByPage(map);
         for(int i = 0; i < users.size(); i++) {
             User user = users.get(i);
-            System.out.println("============================="+user);
             String format = df.format(user.getBorn());
             user.setBornStr(format);
         }
@@ -56,9 +55,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public Map updateUser(User user) {
-        System.out.println("=========="+user);
         Boolean bool = userDao.updateUser(user);
-        System.out.println("=========="+bool);
         Map resultMap = new HashMap();
         resultMap.put("result", bool);
         return resultMap;
