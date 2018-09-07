@@ -3,7 +3,6 @@ package com.ssm.controller;
 import com.ssm.entity.User;
 import com.ssm.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -53,8 +51,14 @@ public class UserController {
     @RequestMapping(value="/updateUser.do", method={RequestMethod.POST})
     @ResponseBody
     public Map updateUser(User user) throws IOException {
-        System.out.println("============="+user);
         Map resultMap = userService.updateUser(user);
+        return  resultMap;
+    }
+
+    @RequestMapping(value="/deleteUserById.do", method={RequestMethod.GET})
+    @ResponseBody
+    public Map deleteUserById(Long id) throws IOException {
+        Map resultMap = userService.deleteUserById(id);
         return  resultMap;
     }
 }

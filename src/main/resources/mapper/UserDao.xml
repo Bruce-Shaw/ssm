@@ -13,15 +13,21 @@
     </select>
 
     <select id="getTotalCount" resultType="int" parameterType="int">
-        SELECT COUNT(*) FROM users;
+        SELECT COUNT(1) FROM users;
     </select>
 
-    <select id="createUser" resultType="long"  parameterType="com.ssm.entity.User">
-        INSERT INTO users (name,gender,born,position,salary) VALUES (#{name},#{gender},#{born},#{position},#{salary});
-    </select>
+    <insert id="createUser" useGeneratedKeys="true" parameterType="com.ssm.entity.User">
+        INSERT INTO users (id,name,gender,born,position,salary) VALUES (#{id},#{name},#{gender},#{born},#{position},#{salary});
+        <selectKey resultType="long" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+    </insert>
 
-    <select id="updateUser" resultType="long"  parameterType="com.ssm.entity.User">
+    <update id="updateUser" parameterType="com.ssm.entity.User">
         UPDATE users SET name=#{name},gender=#{gender},born=#{born},position=#{position},salary=#{salary} WHERE id=#{id};
-    </select>
+    </update>
 
+    <delete id="deleteUserById" parameterType="long">
+        DELETE FROM users WHERE id=#{id}
+    </delete>
 </mapper>

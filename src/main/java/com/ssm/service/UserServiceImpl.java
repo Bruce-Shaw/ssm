@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.beans.Transient;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -46,7 +45,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public Map createUser(User user) {
-        long id = userDao.createUser(user);
+        userDao.createUser(user);
+        Long id = user.getId();
         Map resultMap = new HashMap();
         resultMap.put("id", id);
         resultMap.put("result", id > 0);
@@ -56,10 +56,20 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public Map updateUser(User user) {
-        long id = userDao.updateUser(user);
+        System.out.println("=========="+user);
+        Boolean bool = userDao.updateUser(user);
+        System.out.println("=========="+bool);
         Map resultMap = new HashMap();
-        resultMap.put("id", id);
-        resultMap.put("result", id > 0);
+        resultMap.put("result", bool);
+        return resultMap;
+    }
+
+    @Override
+    @Transactional
+    public Map deleteUserById(long id) {
+        Boolean bool = userDao.deleteUserById(id);
+        Map resultMap = new HashMap();
+        resultMap.put("result", bool);
         return resultMap;
     }
 }

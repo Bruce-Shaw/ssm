@@ -17,4 +17,6 @@ public interface UserService {
 
     public Map updateUser(User user);
 
+    public Map deleteUserById(long id);
+
 }
