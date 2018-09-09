@@ -6,7 +6,7 @@ import java.util.Date;
 public class User implements Serializable {
     private Long id;
     private String name;
-    private String gender;
+    private Integer gender;
     private Date born;
     private String position;
     private Long salary;
@@ -36,11 +36,11 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
