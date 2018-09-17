@@ -18,4 +18,7 @@ public interface UserDao {
     boolean updateUser(User user);
 
     Boolean deleteUserById(long id);
+
+    List<User> searchUsers(String value);
+
 }

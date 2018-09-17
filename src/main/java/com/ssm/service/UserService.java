@@ -19,4 +19,6 @@ public interface UserService {
 
     public Map deleteUserById(long id);
 
+    public HashMap<String,Object> searchUsers(String value);
+
 }

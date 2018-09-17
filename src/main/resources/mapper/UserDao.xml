@@ -30,4 +30,8 @@
     <delete id="deleteUserById" parameterType="long">
         DELETE FROM users WHERE id=#{id}
     </delete>
+
+    <select id="searchUsers" resultType="com.ssm.entity.User" parameterType="String">
+        SELECT * FROM users WHERE name LIKE '%' #{value} '%'
+    </select>
 </mapper>

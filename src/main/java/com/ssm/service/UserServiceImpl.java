@@ -69,4 +69,20 @@ public class UserServiceImpl implements UserService {
         resultMap.put("result", bool);
         return resultMap;
     }
+
+    public HashMap<String,Object> searchUsers(String value) {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        List<User> users = this.userDao.searchUsers(value);
+        for(int i = 0; i < users.size(); i++) {
+            User user = users.get(i);
+            System.out.println(user);
+            String format = df.format(user.getBorn());
+            user.setBornStr(format);
+        }
+        int totalCount = users.size();
+        HashMap<String,Object> result = new HashMap<String,Object>();
+        result.put("data", users);
+        result.put("totalCount", totalCount);
+        return result;
+    }
 }

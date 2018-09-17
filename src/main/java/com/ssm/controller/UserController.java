@@ -61,4 +61,11 @@ public class UserController {
         Map resultMap = userService.deleteUserById(id);
         return  resultMap;
     }
+
+    @RequestMapping(value="/searchUsers.do", method={RequestMethod.GET})
+    @ResponseBody
+    public HashMap searchUsers(String value) throws IOException {
+        HashMap<String,Object> result = userService.searchUsers(value);
+        return  result;
+    }
 }
