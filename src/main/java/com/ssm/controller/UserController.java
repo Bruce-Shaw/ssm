@@ -21,7 +21,7 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @RequestMapping("/getUserById.do")
+    @RequestMapping("/getUserById.json")
     @ResponseBody
     public User getUserById(long id) throws IOException {
         User user = this.userService.getUserById(id);
@@ -31,7 +31,7 @@ public class UserController {
         return  user;
     }
 
-    @RequestMapping("/getUsersByPage.do")
+    @RequestMapping("/getUsersByPage.json")
     @ResponseBody
     public HashMap getUsersByPage(Integer pageNow, Integer pageSize) throws IOException {
         HashMap<String,Object> map = new HashMap<String,Object>();
@@ -41,28 +41,28 @@ public class UserController {
         return  result;
     }
 
-    @RequestMapping(value="/createUser.do", method={RequestMethod.POST})
+    @RequestMapping(value="/createUser.json", method={RequestMethod.POST})
     @ResponseBody
     public Map createUser(User user) throws IOException {
         Map resultMap = userService.createUser(user);
         return  resultMap;
     }
 
-    @RequestMapping(value="/updateUser.do", method={RequestMethod.POST})
+    @RequestMapping(value="/updateUser.json", method={RequestMethod.POST})
     @ResponseBody
     public Map updateUser(User user) throws IOException {
         Map resultMap = userService.updateUser(user);
         return  resultMap;
     }
 
-    @RequestMapping(value="/deleteUserById.do", method={RequestMethod.GET})
+    @RequestMapping(value="/deleteUserById.json", method={RequestMethod.GET})
     @ResponseBody
     public Map deleteUserById(Long id) throws IOException {
         Map resultMap = userService.deleteUserById(id);
         return  resultMap;
     }
 
-    @RequestMapping(value="/searchUsers.do", method={RequestMethod.GET})
+    @RequestMapping(value="/searchUsers.json", method={RequestMethod.GET})
     @ResponseBody
     public HashMap searchUsers(String value) throws IOException {
         HashMap<String,Object> result = userService.searchUsers(value);
