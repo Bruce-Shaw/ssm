@@ -32,6 +32,6 @@
     </delete>
 
     <select id="searchUsers" resultType="com.ssm.entity.User" parameterType="String">
-        SELECT * FROM users WHERE name LIKE '%' #{value} '%' OR position LIKE '%' #{value}
+        SELECT * FROM users WHERE name LIKE '%' #{value} '%' OR position LIKE '%' #{value} '%'
     </select>
 </mapper>
