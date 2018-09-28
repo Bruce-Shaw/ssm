@@ -5,6 +5,9 @@ import java.util.Date;
 
 public class User implements Serializable {
     private Long id;
+    private String uid;
+    private String psw;
+    private Integer level;
     private String name;
     private Integer gender;
     private Date born;
@@ -20,12 +23,24 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public Long getSalary() {
-        return salary;
+    public String getUid() {
+        return uid;
     }
 
-    public void setSalary(Long salary) {
-        this.salary = salary;
+    public String getPsw() {
+        return psw;
+    }
+
+    public void setPsw(String psw) {
+        this.psw = psw;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
     }
 
     public String getName() {
@@ -60,6 +75,13 @@ public class User implements Serializable {
         this.position = position;
     }
 
+    public Long getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Long salary) {
+        this.salary = salary;
+    }
 
     public String getBornStr() {
         return bornStr;
@@ -73,8 +95,11 @@ public class User implements Serializable {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", uid=" + uid +
+                ", psw='" + psw + '\'' +
+                ", level=" + level +
                 ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
+                ", gender=" + gender +
                 ", born=" + born +
                 ", position='" + position + '\'' +
                 ", salary=" + salary +

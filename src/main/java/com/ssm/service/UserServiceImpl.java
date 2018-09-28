@@ -85,4 +85,8 @@ public class UserServiceImpl implements UserService {
         result.put("totalCount", totalCount);
         return result;
     }
+
+    public User login(HashMap<String, Object> map) {
+        return this.userDao.login(map);
+    }
 }

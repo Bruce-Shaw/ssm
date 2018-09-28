@@ -21,4 +21,5 @@ public interface UserDao {
 
     List<User> searchUsers(String value);
 
+    User login(HashMap<String,Object> map);
 }

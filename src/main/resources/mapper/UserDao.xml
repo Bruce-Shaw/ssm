@@ -34,4 +34,8 @@
     <select id="searchUsers" resultType="com.ssm.entity.User" parameterType="String">
         SELECT * FROM users WHERE name LIKE '%' #{value} '%' OR position LIKE '%' #{value} '%'
     </select>
+
+    <select id="login" resultType="com.ssm.entity.User" parameterType="HashMap">
+        SELECT * FROM users WHERE uid = #{uid} AND psw = #{psw}
+    </select>
 </mapper>

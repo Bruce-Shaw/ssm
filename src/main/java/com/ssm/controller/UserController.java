@@ -68,4 +68,20 @@ public class UserController {
         HashMap<String,Object> result = userService.searchUsers(value);
         return  result;
     }
+
+    @RequestMapping(value="/login.json", method={RequestMethod.POST})
+    @ResponseBody
+    public HashMap login(String uid, String psw) throws IOException {
+        HashMap<String,Object> map = new HashMap<String,Object>();
+        map.put("uid", uid);
+        map.put("psw", psw);
+        User user = userService.login(map);
+        HashMap<String,Object> map2 = new HashMap<String,Object>();
+        if(user == null) {
+            map2.put("result", false);
+        } else {
+            map2.put("result", true);
+        }
+        return map2;
+    }
 }
