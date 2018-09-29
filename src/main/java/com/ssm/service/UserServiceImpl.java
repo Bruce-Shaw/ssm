@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,20 +26,24 @@ public class UserServiceImpl implements UserService {
     public HashMap<String,Object> getUsersByPage(HashMap<String, Object> map) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         List<User> users = this.userDao.getUsersByPage(map);
+        List<User> users2 = new ArrayList();
         for(int i = 0; i < users.size(); i++) {
             User user = users.get(i);
-            String format = df.format(user.getBorn());
-            user.setBornStr(format);
+            if(!user.getLevel().equals(0)) {
+                String format = df.format(user.getBorn());
+                user.setBornStr(format);
+                users2.add(user);
+            }
         }
         int totalCount = this.getTotalCount();
         HashMap<String,Object> result = new HashMap<String,Object>();
-        result.put("data", users);
+        result.put("data", users2);
         result.put("totalCount", totalCount);
         return result;
     }
 
     public Integer getTotalCount() {
-        return this.userDao.getTotalCount();
+        return this.userDao.getTotalCount() - 1;
     }
 
     @Override

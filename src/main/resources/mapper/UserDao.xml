@@ -17,7 +17,7 @@
     </select>
 
     <insert id="createUser" useGeneratedKeys="true" parameterType="com.ssm.entity.User">
-        INSERT INTO users (id,name,gender,born,position,salary) VALUES (#{id},#{name},#{gender},#{born},#{position},#{salary});
+        INSERT INTO users (id,uid,name,gender,born,position,salary) VALUES (#{id},#{uid},#{name},#{gender},#{born},#{position},#{salary});
         <selectKey resultType="long" order="AFTER" keyProperty="id">
             SELECT LAST_INSERT_ID() AS id
         </selectKey>
