@@ -86,7 +86,11 @@ public class UserServiceImpl implements UserService {
         return result;
     }
 
-    public User login(HashMap<String, Object> map) {
-        return this.userDao.login(map);
+    public HashMap<String,Object> login(HashMap<String, Object> map) {
+        User user = this.userDao.login(map);
+        HashMap<String,Object> result = new HashMap<String,Object>();
+        result.put("data", user);
+        result.put("result", user != null);
+        return result;
     }
 }

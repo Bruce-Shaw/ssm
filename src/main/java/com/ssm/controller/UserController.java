@@ -75,13 +75,7 @@ public class UserController {
         HashMap<String,Object> map = new HashMap<String,Object>();
         map.put("uid", uid);
         map.put("psw", psw);
-        User user = userService.login(map);
-        HashMap<String,Object> map2 = new HashMap<String,Object>();
-        if(user == null) {
-            map2.put("result", false);
-        } else {
-            map2.put("result", true);
-        }
+        HashMap<String,Object> map2 = userService.login(map);
         return map2;
     }
 }

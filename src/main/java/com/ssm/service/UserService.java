@@ -21,6 +21,6 @@ public interface UserService {
 
     public HashMap<String,Object> searchUsers(String value);
 
-    public User login(HashMap<String, Object> map);
+    public HashMap login(HashMap<String, Object> map);
 
 }
